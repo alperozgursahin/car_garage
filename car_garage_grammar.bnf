@@ -1,35 +1,27 @@
-<program> ::= <command>* 
+<repl> ::= <command> | <command> <repl>
 
-<command> ::= <add-command> 
-            | <list-command> 
-            | <remove-command> 
-            | <quit-command> 
-            | <compound-command>
+<command> ::= <add_command> | <list_command> | <remove_command> | <quit_command>
 
-<compound-command> ::= <command> <command>
+<add_command> ::= "add" <car> ("," <car>)*
 
-<add-command> ::= "add" <car-info>
+<list_command> ::= "list"
 
-<car-info> ::= <make> <model> <year>
+<remove_command> ::= "remove" <id>
+
+<quit_command> ::= "quit"
+
+<car> ::= <make> <model> <year>
 
 <make> ::= <string>
 
 <model> ::= <string>
 
-<year> ::= <integer>
+<year> ::= <number>
 
-<list-command> ::= "list"
+<id> ::= <number>
 
-<remove-command> ::= "remove" <car-id>
+<string> ::= <char>+
+<char> ::= 'a' | 'b' | 'c' | ... | 'z' | 'A' | 'B' | ... | 'Z' | '0' | '1' | ... | '9' | ' '
 
-<car-id> ::= <integer>
-
-<quit-command> ::= "quit"
-
-<string> ::= <letter>+
-
-<letter> ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
-
-<integer> ::= <digit>+
-
-<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<number> ::= <digit>+
+<digit> ::= '0' | '1' | '2' | ... | '9'
